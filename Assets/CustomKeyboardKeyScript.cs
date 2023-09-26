@@ -22,6 +22,7 @@ public class CustomKeyboardKeyScript : MonoBehaviour
     public void TapKey()
     {
         //send signal to brain
+        Debug.Log(inputChar.ToString());
         brain.AppendChar(inputChar);
     }
 }
