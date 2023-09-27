@@ -7,7 +7,7 @@ public class KeyboardBrain : MonoBehaviour
 {
     private string currentText = "DefaultText";
     public TMPro.TextMeshPro tmp;
-    private GameObject go;
+    private GameObject rootRef;
     public GameObject prefabSquid;
     public GameObject prefabFriends;
     public GameObject prefabDeer;
@@ -15,8 +15,8 @@ public class KeyboardBrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        go = new GameObject("The ROOT");
-        go.transform.position = Vector3.zero;
+        rootRef = new GameObject("The ROOT");
+        rootRef.transform.position = Vector3.zero;
         //GameObject.Instantiate(go);
         UpdateTextDisplay();
     }
@@ -62,11 +62,14 @@ public class KeyboardBrain : MonoBehaviour
 
     public void ClearSpawnedObjects()
     {
-        UnityEngine.Transform[] gameObjects = go.GetComponentsInChildren<Transform>();
+        UnityEngine.Transform[] gameObjects = rootRef.GetComponentsInChildren<Transform>();
         foreach (Transform t in gameObjects)
         {
             Destroy(t.gameObject);
         }
+        rootRef = Instantiate(rootRef);
+        rootRef = new GameObject("The ROOT");
+        rootRef.transform.position = Vector3.zero;
     }
 
     private void EvaluateCommand()
@@ -102,7 +105,7 @@ public class KeyboardBrain : MonoBehaviour
             for (int i = 0; i < toSpawn; i++)
             {
                 GameObject newest = GameObject.Instantiate(selectedPrefab);
-                newest.transform.parent = this.go.transform;
+                newest.transform.parent = rootRef.transform;
                 newest.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 1;
                 newest.transform.Translate(0, i * 2, 0);
                 newest.transform.LookAt(Camera.main.transform.position);
