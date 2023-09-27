@@ -136,7 +136,10 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -603312178191186665, guid: 692ddc59ca9bc314785c440e50acc9a3, type: 2}
+  - {fileID: 11400000, guid: 2f2351c65031be54ea8450dc3b41c132, type: 2}
+  - {fileID: 5502702764580009704, guid: 8f2e3f4a49600304e835eabe3d1d8d9b, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -301,7 +304,7 @@ PlayerSettings:
   - m_BuildTarget: Switch
     m_GraphicsJobs: 1
   - m_BuildTarget: MetroSupport
-    m_GraphicsJobs: 1
+    m_GraphicsJobs: 0
   - m_BuildTarget: AppleTVSupport
     m_GraphicsJobs: 0
   - m_BuildTarget: BJMSupport
@@ -699,8 +702,8 @@ PlayerSettings:
   platformCapabilities:
     WindowsStoreApps:
       PrivateNetworkClientServer: True
-      SpatialPerception: True
       InternetClientServer: True
+      SpatialPerception: True
       InternetClient: True
       WebCam: True
       Microphone: True
