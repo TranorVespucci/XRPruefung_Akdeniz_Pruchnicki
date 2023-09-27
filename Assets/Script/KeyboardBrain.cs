@@ -74,7 +74,7 @@ public class KeyboardBrain : MonoBehaviour
 
     private void EvaluateCommand()
     {
-        string[] words = this.currentText.Split(' ');
+        string[] words = this.currentText.Split('_');
         if (words == null)
         {
             return;
